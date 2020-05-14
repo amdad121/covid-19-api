@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <div id="confirmed"></div>
+        <div id="recovered"></div>
+        <div id="deaths"></div>
+
+        <marquee behavior="" direction="">
+            <div style="display: flex;" id="districts"></div>
+        </marquee>
+    </div>
+    <script>
+        $(function() {
+            $.get('https://corona.in.com.bd/api/stats', function(res) {
+                // console.log(res);
+                $('#confirmed').html(res.total.confirmed)
+                $('#recovered').html(res.total.recovered)
+                $('#deaths').html(res.total.deaths)
+            });
+            $.get('https://corona.in.com.bd/api/districts', function(res) {
+                // console.log(res.data);
+                res.data.forEach(function(district) {
+                    var ul = $("<ul></ul>");
+                    ul.append(`<li> ${district.name}-${district.confirmed} </li>`);
+                    $('#districts').append(ul);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
