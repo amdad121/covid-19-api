@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['bar']
+        });
+        google.charts.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+            $.getJSON('https://corona.in.com.bd/api/ages', function(res) {
+                // console.log(res.data);
+                var data = new google.visualization.arrayToDataTable([
+                    ['', 'Percentage'],
+                    ["1-10", res.data.onetoten.confirmed],
+                    ["11-20", res.data.eleventotwenty.confirmed],
+                    ["21-30", res.data.twentyonetothirty.confirmed],
+                    ["31-40", res.data.thirtyonetofourty.confirmed],
+                    ['41-50', res.data.fourtyonetofifty.confirmed],
+                    ['51-60', res.data.fiftyonetosixty.confirmed],
+                    ['60+', res.data.sixtyplus.confirmed]
+                ]);
+
+                var options = {
+                    title: 'Chess opening moves',
+                    width: 900,
+                    legend: {
+                        position: 'none'
+                    },
+                    chart: {
+                        title: 'Corona Ages',
+                        subtitle: 'Ages defferances of corona cases.'
+                    },
+                    bars: 'vartical',
+                    axes: {
+                        y: {
+                            0: {
+                                side: 'top',
+                                label: 'Percentage'
+                            } // Top x-axis.
+                        }
+                    },
+                    bar: {
+                        groupWidth: "90%"
+                    }
+                };
+
+                var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+                chart.draw(data, options);
+            })
+        };
+    </script>
+</head>
+
+<body>
+    <div id="top_x_div" style="width: 900px; height: 500px;"></div>
+</body>
+
+</html>
