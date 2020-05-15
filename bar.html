@@ -10,7 +10,7 @@
         google.charts.setOnLoadCallback(drawStuff);
 
         function drawStuff() {
-            $.getJSON('https://corona.in.com.bd/api/ages', function(res) {
+            $.getJSON('https://covid.codeofamdad.com/api/ages', function(res) {
                 // console.log(res.data);
                 var data = new google.visualization.arrayToDataTable([
                     ['', 'Percentage'],

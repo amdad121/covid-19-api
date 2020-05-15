@@ -14,7 +14,7 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            $.getJSON('https://corona.in.com.bd/api/genders', function(res) {
+            $.getJSON('https://covid.codeofamdad.com/api/genders', function(res) {
                 // console.log(res.data);
                 var data = google.visualization.arrayToDataTable([
                     ['Genders', 'Persent'],

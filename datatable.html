@@ -30,7 +30,7 @@
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script>
         $(function() {
-            $.getJSON('https://corona.in.com.bd/api/districts', function(res) {
+            $.getJSON('https://covid.codeofamdad.com/api/districts', function(res) {
                 // console.log(res.data);
                 $.each(res.data, function(key, val) {
                     var table = `

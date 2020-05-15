@@ -20,13 +20,13 @@
     </div>
     <script>
         $(function() {
-            $.get('https://corona.in.com.bd/api/stats', function(res) {
+            $.get('https://covid.codeofamdad.com/api/stats', function(res) {
                 // console.log(res);
                 $('#confirmed').html(res.total.confirmed)
                 $('#recovered').html(res.total.recovered)
                 $('#deaths').html(res.total.deaths)
             });
-            $.get('https://corona.in.com.bd/api/districts', function(res) {
+            $.get('https://covid.codeofamdad.com/api/districts', function(res) {
                 // console.log(res.data);
                 res.data.forEach(function(district) {
                     var ul = $("<ul></ul>");

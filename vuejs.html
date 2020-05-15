@@ -28,7 +28,7 @@
                 function formatNumber(num) {
                     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
                 }
-                axios.get('https://corona.in.com.bd/api/stats')
+                axios.get('https://covid.codeofamdad.com/api/stats')
                     .then(res => {
                         // console.log(res.data);
                         this.confirmed = formatNumber(res.data.total.confirmed)
